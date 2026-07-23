@@ -4,13 +4,15 @@ CFLAGS = -Wall -Wextra -I../lib
 
 LIB_SRC = ../lib/error.c
 
-PROGS =	daytimetcpcli 
+PROGS =	daytimetcpcli daytimetcpcliv6
 
 # Дефолтная цель: собираем программу
 all: $(PROGS)
 
 # Сборка клиенского файла вместе с ошибками из lib/
 daytimetcpcli: daytimetcpcli.c $(LIB_SRC)
+	$(CC) $(CFLAGS) $^ -o $@
+daytimetcpcliv6: daytimetcpcliv6.c $(LIB_SRC)
 	$(CC) $(CFLAGS) $^ -o $@
 
 # Очистка скомпилированного бинарника
