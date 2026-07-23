@@ -2,9 +2,9 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -I../lib
 
-LIB_SRC = ../lib/error.c
+LIB_SRC = ../lib/error.c ../lib/wrappthread.c ../lib/wrapsock.c  ../lib/wrapunix.c 
 
-PROGS =	daytimetcpcli daytimetcpcliv6
+PROGS =	daytimetcpcli daytimetcpcliv6 daytimetcpsrv
 
 # Дефолтная цель: собираем программу
 all: $(PROGS)
@@ -13,6 +13,8 @@ all: $(PROGS)
 daytimetcpcli: daytimetcpcli.c $(LIB_SRC)
 	$(CC) $(CFLAGS) $^ -o $@
 daytimetcpcliv6: daytimetcpcliv6.c $(LIB_SRC)
+	$(CC) $(CFLAGS) $^ -o $@
+daytimetcpsrv: daytimetcpsrv.c $(LIB_SRC)
 	$(CC) $(CFLAGS) $^ -o $@
 
 # Очистка скомпилированного бинарника

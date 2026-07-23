@@ -8,6 +8,7 @@
 #include <unistd.h>
 #include <pthread.h>
 
+#define LISTENQ 1024
 #define MAXLINE 4096 /* max text line length */
 
 /* Define bzero() as a macro if it's not in standard C library. */
@@ -19,6 +20,11 @@
 #define SA struct sockaddr
 
 int Socket(int, int, int);
+void Bind(int, const SA *, socklen_t);
+void Listen(int, int);
+int Accept(int, SA *, socklen_t *);
+void Write(int, void *, size_t);
+void Close(int);
 
 void err_quit(const char *, ...);
 void err_sys(const char *, ...);
