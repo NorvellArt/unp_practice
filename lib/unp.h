@@ -6,6 +6,7 @@
 #include <string.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include <pthread.h>
 
 #define MAXLINE 4096 /* max text line length */
 
@@ -16,6 +17,8 @@
 
 /* Following shortens all the type casts of pointer arguments */
 #define SA struct sockaddr
+
+int Socket(int, int, int);
 
 void err_quit(const char *, ...);
 void err_sys(const char *, ...);
