@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -I../lib
 
 LIB_SRC = ../lib/error.c ../lib/wrappthread.c ../lib/wrapsock.c  ../lib/wrapunix.c 
 
-PROGS =	daytimetcpcli daytimetcpcliv6 daytimetcpsrv
+PROGS =	daytimetcpcli daytimetcpcliv6 daytimetcpsrv byteorder
 
 # Дефолтная цель: собираем программу
 all: $(PROGS)
@@ -15,6 +15,8 @@ daytimetcpcli: daytimetcpcli.c $(LIB_SRC)
 daytimetcpcliv6: daytimetcpcliv6.c $(LIB_SRC)
 	$(CC) $(CFLAGS) $^ -o $@
 daytimetcpsrv: daytimetcpsrv.c $(LIB_SRC)
+	$(CC) $(CFLAGS) $^ -o $@
+byteorder: byteorder.c $(LIB_SRC)
 	$(CC) $(CFLAGS) $^ -o $@
 
 # Очистка скомпилированного бинарника
