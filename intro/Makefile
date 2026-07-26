@@ -2,7 +2,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -I../lib
 
-LIB_SRC = ../lib/error.c ../lib/wrappthread.c ../lib/wrapsock.c  ../lib/wrapunix.c 
+LIB_SRC = ../lib/error.c ../lib/wrappthread.c ../lib/wrapsock.c  ../lib/wrapunix.c \
+		../lib/sock_ntop.c
 
 PROGS =	daytimetcpcli daytimetcpcliv6 daytimetcpsrv byteorder
 
