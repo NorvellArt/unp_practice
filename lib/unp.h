@@ -20,32 +20,37 @@
 #define SA struct sockaddr
 
 #if defined(__x86_64__) || defined(_M_X64)
-  #define HOST_CPU "x86_64"
+#define HOST_CPU "x86_64"
 #elif defined(__i386__) || defined(_M_IX86)
-  #define HOST_CPU "i686"
+#define HOST_CPU "i686"
 #elif defined(__aarch64__)
-  #define HOST_CPU "aarch64"
+#define HOST_CPU "aarch64"
 #else
-  #define HOST_CPU "unknown"
+#define HOST_CPU "unknown"
 #endif
 
 #if defined(__linux__)
-  #define HOST_OS "linux-gnu"
+#define HOST_OS "linux-gnu"
 #elif defined(__APPLE__)
-  #define HOST_OS "darwin"
+#define HOST_OS "darwin"
 #elif defined(_WIN32)
-  #define HOST_OS "windows"
+#define HOST_OS "windows"
 #else
-  #define HOST_OS "unknown"
+#define HOST_OS "unknown"
 #endif
 
 #define CPU_VENDOR_OS HOST_CPU "-pc-" HOST_OS
+
+char *Sock_ntop(const SA *, socklen_t);
 
 int Socket(int, int, int);
 void Bind(int, const SA *, socklen_t);
 void Listen(int, int);
 int Accept(int, SA *, socklen_t *);
 void Write(int, void *, size_t);
+void Writen(int, void *, size_t);
+ssize_t Readn(int, void *, size_t);
+ssize_t Readline(int, void *, size_t);
 void Close(int);
 
 void err_quit(const char *, ...);
