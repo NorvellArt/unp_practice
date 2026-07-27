@@ -2,3 +2,6 @@ intro/daytimetcpcli
 intro/daytimetcpcliv6
 intro/daytimetcpsrv
 intro/byteorder
+
+tcpcliserv/tcpserv01
+tcpcliserv/tcpcli01

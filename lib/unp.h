@@ -8,6 +8,8 @@
 #include <unistd.h>
 #include <pthread.h>
 
+#define SERV_PORT 9877
+
 #define LISTENQ 1024
 #define MAXLINE 4096 /* max text line length */
 
@@ -43,8 +45,12 @@
 
 char *Sock_ntop(const SA *, socklen_t);
 
+char *Fgets(char *, int, FILE *);
+void Fputs(const char *, FILE *);
+
 int Socket(int, int, int);
 void Bind(int, const SA *, socklen_t);
+void Connect(int, const SA *, socklen_t);
 void Listen(int, int);
 int Accept(int, SA *, socklen_t *);
 void Write(int, void *, size_t);
@@ -52,6 +58,14 @@ void Writen(int, void *, size_t);
 ssize_t Readn(int, void *, size_t);
 ssize_t Readline(int, void *, size_t);
 void Close(int);
+
+pid_t Fork(void);
+
+void str_echo(int);
+void str_cli(FILE *, int);
+
+const char *Inet_ntop(int, const void *, char *, size_t);
+void Inet_pton(int, const char *, void *);
 
 void err_quit(const char *, ...);
 void err_sys(const char *, ...);

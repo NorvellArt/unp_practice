@@ -11,6 +11,12 @@ int Socket(int family, int type, int protocol)
 }
 /* end Socket */
 
+void Connect(int fd, const SA *sa, socklen_t salen)
+{
+    if (connect(fd, sa, salen) < 0)
+        err_sys("connect error");
+}
+
 void Bind(int fd, const SA *sa, socklen_t salen)
 {
     if (bind(fd, sa, salen) < 0)
@@ -49,4 +55,3 @@ again:
     }
     return (n);
 }
-
