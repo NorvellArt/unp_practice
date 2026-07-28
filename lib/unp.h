@@ -1,4 +1,7 @@
+#define _POSIX_C_SOURCE 200809L
+
 #include <arpa/inet.h>
+#include <signal.h>
 #include <errno.h>
 #include <netinet/in.h>
 #include <stdlib.h>
@@ -42,6 +45,8 @@
 #endif
 
 #define CPU_VENDOR_OS HOST_CPU "-pc-" HOST_OS
+
+typedef void Sigfunc(int); /* for signal handlers */
 
 char *Sock_ntop(const SA *, socklen_t);
 
