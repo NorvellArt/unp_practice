@@ -10,6 +10,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 #include <pthread.h>
+#include <sys/wait.h>
 
 #define SERV_PORT 9877
 
