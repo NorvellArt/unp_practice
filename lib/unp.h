@@ -48,6 +48,7 @@
 #define CPU_VENDOR_OS HOST_CPU "-pc-" HOST_OS
 
 typedef void Sigfunc(int); /* for signal handlers */
+Sigfunc *Signal(int, Sigfunc *);
 
 char *Sock_ntop(const SA *, socklen_t);
 
